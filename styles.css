@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #232220;
+}
+
+header {
+    background-color: #232220;
+    padding: 15px 40px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+}
+
+/* El nav ocupa todo el ancho del header para poder distribuir elementos */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
+    position: relative; /* Asegura que esté por encima de las montañas */
+}
+
+/* Empuja el logo a la izquierda y el menú a la derecha */
+.logo-container {
+    margin-right: auto;
+}
+
+/* Flexbox para los enlaces, elimina la necesidad de paddings gigantes */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 400px; /* mopver los iconos de control */
+    margin-left: 70px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #e6e6e6;
+    color: #232220;
+    padding: 10px 18px;
+    border-radius: 10px; 
+}
+
+.nav-link:hover {
+    background-color: #fff; /* Pequeño ajuste para que se note el hover en modo oscuro */
+    color: #232220;
+}
+
+/* Separadores verticales limpios */
+.nav-link2, .nav-link3 {
+    border-left: 1px solid #666;
+    padding-left: 30px; /* Separación entre la línea y el texto */
+}
+
+.Img-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    background-color: #232220;
+}
+
+.elements-cat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e6e6e6;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.elements-cat.activo {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.separador-vertical {
+    height: 25px;
+    width: 1px;
+    background-color: #666;
+    margin: 0 10px;
+}
