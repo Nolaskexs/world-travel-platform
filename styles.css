@@ -1,116 +1,480 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #232220;
+  font-family: var(--font-family-base);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-    background-color: #232220;
-    padding: 15px 40px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid #333;
+ul {
+  list-style: none;
 }
 
-/* El nav ocupa todo el ancho del header para poder distribuir elementos */
-nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    z-index: 2;
-    position: relative; /* Asegura que esté por encima de las montañas */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Empuja el logo a la izquierda y el menú a la derecha */
-.logo-container {
-    margin-right: auto;
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
 }
 
-/* Flexbox para los enlaces, elimina la necesidad de paddings gigantes */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-right: 400px; /* mopver los iconos de control */
-    margin-left: 70px;
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #e6e6e6;
-    color: #232220;
-    padding: 10px 18px;
-    border-radius: 10px; 
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.nav-link:hover {
-    background-color: #fff; /* Pequeño ajuste para que se note el hover en modo oscuro */
-    color: #232220;
+/* Consistent, visible keyboard focus across every 
+interactive element. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent-teal);
+  outline-offset: 2px;
 }
 
-/* Separadores verticales limpios */
-.nav-link2, .nav-link3 {
-    border-left: 1px solid #666;
-    padding-left: 30px; /* Separación entre la línea y el texto */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
-.Img-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    z-index: 1;
-    pointer-events: none;
+/* ---------------------------------------------
+   2. Tokens de diseño (CSS Custom Properties)
+   --------------------------------------------- */
+:root {
+  /* Brand backgrounds */
+  --color-bg-dark: #232220;
+  --color-bg-light: #ffffff;
+
+  /* Text colors */
+  --color-text-light: #ffffff;
+  --color-text-dark: #1a1a1a;
+  --color-text-muted: #6f6f6f;
+  --color-text-on-dark-muted: #cfcfcd;
+
+  /* Posicion colors — light sections */
+  --color-posicion-bg: #d9d9d9;
+  --color-posicion-border: #b0b0b0;
+
+  /* Posicion colors — dark sections */
+  --color-posicion-bg-dark: #3a3936;
+  --color-posicion-border-dark: #5a5955;
+
+  /* Accents */
+  --color-badge-bg: #1a1a1a;
+  --color-badge-text: #ffffff;
+  --color-accent-teal: #2d6b68;
+  --color-accent-teal-hover: #23524f;
+
+  /* Borders & dividers */
+  --color-border-subtle: #e4e4e4;
+  --color-divider-on-dark: #47443f;
+
+  /* Border radius scale */
+  --radius-pill: 999px;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+
+  /* Espaciado */
+  --space-2xs: 8px;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 22px;
+  --space-xl: 48px;
+  --space-2xl: 30px; /* Espaciado de abajo */
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 24px;
+
+  /* Tipografía */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
 }
 
-.categories {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 40px;
-    background-color: #232220;
+/* --------------------------------------
+   3. Clases
+   -------------------------------------- */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
-.elements-cat {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #e6e6e6;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.elements-cat.activo {
-    background-color: #1e1e1e;
-    color: #fff;
-    border: 1px solid #fff;
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-sm);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+  transition: top 0.2s ease;
 }
 
-.separador-vertical {
+.skip-link:focus-visible {
+  top: var(--space-sm);
+}
+
+/* El tamaño se controla mediante los modificadores 
+.icon-xs / .icon-sm / .icon-md que aparecen a continuación. */
+.icon-posicion {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Marvador para todos los íconos*/
+.icon-posicion.icon-on-dark {
+}
+/* icons agupados por el final... xs, sm, md*/
+.icon-xs { width: 25px; height: 25px; }
+.icon-sm { width: 25px; height: 25px; }
+.icon-md { width: 22px; height: 22px; }
+
+/*cambiado por falta de tamaño específico*/
+.avion{
+    width: 36px; 
     height: 25px;
-    width: 1px;
-    background-color: #666;
-    margin: 0 10px;
+}
+
+.auto {
+    width: 34px; 
+    height: 25px;
+}
+
+.destino {
+    width: 18px; 
+    height: 23px;
+}
+
+.arrow {
+  margin-left: 8px;
+  width: 23px; 
+  height: 23px;
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-md);
+}
+
+/* --------------------------------------
+   4. Header — Barra superior
+   -------------------------------------- */
+.site-header {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.header-topbar {
+  border-bottom: 1px solid var(--color-divider-on-dark);
+}
+
+.topbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+/* logo*/
+.brand-icon-posicion {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: var(--font-size-md);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  flex-wrap: wrap;
+}
+
+.sales-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-divider-on-dark);
+}
+
+.topbar-link {
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+.topbar-link:hover {
+  text-decoration: underline;
+}
+
+/* imagenes de las montañas*/
+.topbar-decoration-posicion {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 130px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---------------------------------------
+   5. Header — Navegación por píldoras
+   --------------------------------------- */
+.header-nav-bar {
+  position: relative;
+  z-index: 2;
+  padding-top: var(--space-md);
+}
+
+.pill-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.pill-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.pill-nav-item--active {
+  border-color: var(--color-text-light);
+}
+
+.pill-nav-item:hover {
+  border-color: var(--color-accent-teal);
+}
+
+.pill-nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-divider-on-dark);
+  margin: 0 var(--space-2xs);
+}
+
+.pill-nav-more {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.pill-nav-more:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------
+   6. Header — Búsqueda
+   --------------------------------------- */
+.hero-search {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-lg) 0 var(--space-2xl);
+}
+
+.hero-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.search-bar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.search-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.search-pill--trip-type select {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+}
+
+.search-pill--locations {
+  flex: 1 1 320px;
+  padding: 0;
+}
+
+.location-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  flex: 1;
+  text-align: left;
+}
+
+.location-field-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.location-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.location-value {
+  font-weight: 600;
+}
+
+.swap-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.swap-button:hover {
+  border-color: var(--color-accent-teal);
+}
+
+.search-pill--dates {
+  gap: 0;
+}
+
+.date-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  padding: 0 var(--space-xs);
+}
+
+.search-pill-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-border-subtle);
+  margin: 0 var(--space-sm);
+}
+
+.search-pill--passengers {
+  font-weight: 600;
+}
+
+.search-submit {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-badge-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.search-submit:hover {
+  background-color: #000000;
 }

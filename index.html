@@ -8,36 +8,150 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="icons/logo-cut.png" alt="Logo" class="logo" width="70" height="70">
-            </div>
-            
-            <div class="nav-links">
-                <a class="nav-link" href="support.html">
-                    <img class="Audifonos" src="icons/69890.png" alt="Phone icon" width="20" height="20"> 
-                    Para ventas 000-000-0000
-                </a>
-                <a class="nav-link1" href="my-trips.html">Mis viajes</a>
-                <a class="nav-link2" href="support.html">Ayuda</a>
-                <a class="nav-link3" href="shopping-cart.html">Carrito</a>
-            </div>
+  <header class="site-header">
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+    <!-- Top bar: brand logo + account/support links -->
+    <div class="header-topbar">
+      <div class="container topbar-container">
+        <div class="brand">
+          <!-- Logo -->
+          <img class="brand-icon-posicion" src="icons/logo-cut.png" alt="">
+        </div>
+
+        <nav class="topbar-nav" aria-label="Cuenta y soporte">
+          <div class="sales-contact">
+            <!-- ICON POSICION: support icon -->
+            <img class="icon-posicion icon-sm icon-on-dark" src="icons/support.png" alt="">
+            <span>Para ventas 000-1010001</span>
+          </div>
+          <span class="topbar-divider" aria-hidden="true"></span>
+          <a class="topbar-link" href="#">Mis viajes</a>
+          <span class="topbar-divider" aria-hidden="true"></span>
+          <a class="topbar-link" href="#">Ayuda</a>
+          <a class="topbar-link" href="#">Carrito</a>
         </nav>
 
-        <!--La imagen de fondo va en el header, fuera del nav -->
-        <img class="Img-right" src="icons/nav-right.png" alt="Decoración montañas"> 
-    </header>
-    <!-- FILA INTERMEDIA: Navegación de categorías -->
-    <section class="categories">
-        <button class="elements-cat"><span class="icono"></span>Alojamientos</button>
-        <button class="elements-cat activo"><span class="icono"></span>Vuelos</button>
-        <button class="elements-cat"><span class="icono"></span>Paquetes</button>
-        <button class="elements-cat"><span class="icono"></span>Ofertas</button>
-        <button class="elements-cat"><span class="icono"></span>Autos</button>
-        <button class="elements-cat"><span class="icono"></span>Actividades</button>
-        <div class="separador-vertical"></div>
-        <button class="elements-cat"><span class="icono"></span>Ver más</button>
-    </section>
+        <!-- IMAGE POSICION: decorative mountain / topographic line-art illustration, top-right corner. Suggested size: 240x130px -->
+        <img class="topbar-decoration-posicion" src="icons/nav-right.png" alt="" >
+      </div>
+    </div>
+
+    <!-- Pill-shaped category navigation -->
+    <div class="header-nav-bar">
+      <div class="container">
+        <nav class="pill-nav" aria-label="Categorías de viaje">
+          <button class="pill-nav-item" type="button">
+            <!-- ICON POSICION: Alojamientos-->
+            <img class="icon-posicion icon-sm" src="icons/952772.png" alt="">
+            <span>Alojamientos</span>
+          </button>
+
+          <button class="pill-nav-item pill-nav-item--active" type="button" aria-current="page">
+            <!-- ICON POSICION: Vuelos (Iconos cambiado por px) -->
+            <img class="avion" src="icons/Imagen1.png" alt="">
+            <span>Vuelos</span>
+          </button>
+
+          <button class="pill-nav-item" type="button">
+            <!-- ICON POSICION: Paquetes-->
+            <img class="icon-posicion icon-sm" src="icons/pngwing.com.png" alt="">
+            <span>Paquetes</span>
+          </button>
+
+          <button class="pill-nav-item" type="button">
+            <!-- ICON POSICION: Ofertas -->
+            <img class="icon-posicion icon-sm" src="icons/oferta.png" alt="">
+            <span>Ofertas</span>
+          </button>
+
+          <button class="pill-nav-item" type="button">
+            <!-- ICON POSICION: Autos (Modificado por tamaño de la img) -->
+            <img class="auto" src="icons/canva-icono-de-coche-MAG-rcK2sRs.png" alt="">
+            <span>Autos</span>
+          </button>
+
+          <button class="pill-nav-item" type="button">
+            <!-- ICON POSICION: Actividades -->
+            <img class="icon-posicion icon-sm" src="icons/ticket.png" alt="">
+            <span>Actividades</span>
+          </button>
+
+          <span class="pill-nav-divider" aria-hidden="true"></span>
+
+          <button class="pill-nav-more" type="button">
+            <span>Ver más</span>
+            <!-- ICON POSICION: chevron-down icon. -->
+            <img class="arrow" src="icons/flecha4.png" alt="">
+          </button>
+        </nav>
+      </div>
+    </div>
+  <!-- Búsqueda de vuelos -->
+    <div class="hero-search">
+      <div class="container">
+        <h1 class="hero-title">Vuelos</h1>
+
+        <form class="search-bar" action="#" method="get">
+          <div class="search-pill search-pill--trip-type">
+            <label class="visually-hidden" for="trip-type">Tipo de viaje</label>
+            <select id="trip-type" name="trip-type">
+              <option>Ida y vuelta</option>
+              <option>Solo ida</option>
+              <option>Multidestino</option>
+            </select>
+          </div>
+
+          <div class="search-pill search-pill--locations">
+            <button class="location-field" type="button">
+              <!-- ICON POSICION: origin marker icon (circle/dot). Suggested size: 18x18px -->
+              <img class="icon-posicion icon-sm" src="icons/circleshape_87529.png" alt="">
+              <span class="location-field-text">
+                <span class="location-label">Origen</span>
+                <span class="location-value">Lima, Lima, Perú</span>
+              </span>
+            </button>
+
+            <button class="swap-button" type="button" aria-label="Intercambiar origen y destino">
+              <!-- ICON POSICON: Exchange arrows icon -->
+              <img class="icon-posicion icon-sm" src="icons/60660.png" alt="">
+            </button>
+
+            <button class="location-field" type="button">
+              <!-- ICON POSICION: destination pin icon. Suggested size: 18x18px -->
+              <img class="destino" src="icons/Imagen3.png" alt="">
+              <span class="location-field-text">
+                <span class="location-value">Destino</span>
+              </span>
+            </button>
+          </div>
+
+          <div class="search-pill search-pill--dates">
+            <button class="date-field" type="button">
+              <!-- ICON POSICION: calendar icon (departure date). Suggested size: 18x18px -->
+              <img class="icon-posicion icon-sm" src="icons/Imagen4.png" alt="">
+              <span>Ida</span>
+            </button>
+            <span class="search-pill-divider" aria-hidden="true"></span>
+            <button class="date-field" type="button">
+              <!-- ICON POSICION: calendar icon (return date). Suggested size: 18x18px -->
+              <img class="icon-posicion icon-sm" src="icons/Imagen4.png" alt="">
+              <span>Vuelta</span>
+            </button>
+          </div>
+
+          <button class="search-pill search-pill--passengers" type="button">
+            <!-- ICON POSICION: passenger / person icon. Suggested size: 18x18px -->
+            <img class="icon-posicion icon-sm" src="icons/wondicon-ui-free-user_111213.png" alt="">
+            <span>1</span>
+          </button>
+
+          <button class="search-submit" type="submit" aria-label="Buscar vuelos">
+            <!-- ICON POSICION: magnifying glass / search icon. Suggested size: 20x20px -->
+            <img class="icon-posicion icon-md icon-on-dark" src="icons/search-13-64.png" alt="">
+          </button>
+        </form>
+      </div>
+    </div>
 </body>
 </html>
