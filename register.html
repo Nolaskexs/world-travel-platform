@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Travel | Crear cuenta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+<!-- partial: header -->
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="logo" href="index.html" aria-label="World Travel, inicio">Logo<br>72×72</a>
+    <div class="hdr__r">
+      <a class="sales" href="tel:0001010001">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3M21 16a2 2 0 0 1-2 2h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h3zM3 16a2 2 0 0 0 2 2h1a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z"/></svg>
+        Para ventas 000-1010001
+      </a>
+      <nav aria-label="Principal"><ul class="nav"><li><a href="#">Mis viajes</a></li><li><a href="#">Ayuda</a></li><li><a href="#">Carrito</a></li></ul></nav>
+    </div>
+  </div>
+</header>
+
+<main class="auth">
+  <section class="pane">
+    <div class="login">
+      <div id="intro">
+        <h1>Crear tu cuenta</h1>
+        <p class="lead">Regístrate para empezar a guardar tus itinerarios y planificar tu próximo viaje.</p>
+      </div>
+
+      <form id="regForm" action="#" method="post" novalidate>
+        <!-- Paso 1 -->
+        <fieldset class="step" id="step1" aria-labelledby="s1">
+          <h2 class="sub" id="s1">Datos básicos</h2>
+          <div class="fld"><label class="sr" for="firstName">Nombres</label><input class="inp" id="firstName" name="firstName" type="text" placeholder="Nombres" autocomplete="given-name" required></div>
+          <div class="fld"><label class="sr" for="lastName">Apellidos</label><input class="inp" id="lastName" name="lastName" type="text" placeholder="Apellidos" autocomplete="family-name" required></div>
+          <div class="fld"><label class="sr" for="email">Email</label><input class="inp" id="email" name="email" type="email" placeholder="Email" autocomplete="email" required></div>
+          <div class="row">
+            <div class="fld"><label class="sr" for="dial">Código de país</label><input class="inp" id="dial" name="dial" type="tel" inputmode="tel" placeholder="+51" pattern="\+[0-9]{1,3}" title="Ejemplo: +51" autocomplete="tel-country-code" required></div>
+            <div class="fld"><label class="sr" for="phone">Teléfono</label><input class="inp" id="phone" name="phone" type="tel" inputmode="tel" placeholder="Teléfono" pattern="[0-9 ]{6,15}" title="Solo números, entre 6 y 15 dígitos" autocomplete="tel-national" required></div>
+          </div>
+          <p class="have">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+          <div class="actions"><button class="btn btn--primary btn--next" type="submit">Siguiente</button></div>
+        </fieldset>
+
+        <!-- Paso 2 -->
+        <fieldset class="step" id="step2" aria-labelledby="s2" hidden>
+          <button class="back" id="back" type="button">&larr; Volver</button>
+          <h2 class="sub" id="s2">Seguridad y Viajero</h2>
+          <div class="fld"><label class="sr" for="password">Contraseña</label><div class="pw"><input class="inp" id="password" name="password" type="password" placeholder="Contraseña" minlength="8" autocomplete="new-password" required><button class="eye" type="button" data-toggle="password" aria-controls="password" aria-label="Mostrar contraseña" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="slash" d="m3 3 18 18"/></svg></button></div></div>
+          <div class="fld"><label class="sr" for="confirm">Confirmar contraseña</label><div class="pw"><input class="inp" id="confirm" name="confirm" type="password" placeholder="Confirmar contraseña" autocomplete="new-password" required><button class="eye" type="button" data-toggle="confirm" aria-controls="confirm" aria-label="Mostrar contraseña" aria-pressed="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path class="slash" d="m3 3 18 18"/></svg></button></div></div>
+          <div class="fld"><label class="sr" for="docId">DNI o Pasaporte</label><input class="inp" id="docId" name="docId" type="text" placeholder="DNI o Pasaporte" pattern="[A-Za-z0-9]{{6,12}}" title="Entre 6 y 12 letras o números" autocapitalize="characters" required></div>
+          <div class="fld"><label class="sr" for="birth">Fecha de nacimiento</label><input class="inp" id="birth" name="birth" type="date" autocomplete="bday" required></div>
+          <div class="fld"><label class="sr" for="emergency">Contacto de emergencia</label><input class="inp" id="emergency" name="emergency" type="text" placeholder="Contacto de emergencia" autocomplete="off" required></div>
+          <label class="terms"><input type="checkbox" name="terms" required><span>Acepto los <a href="#" target="_blank" rel="noopener">Términos y Políticas de Privacidad</a></span></label>
+          <button class="btn btn--primary" type="submit">Registrarse</button>
+          <div class="or" role="separator"><span>or</span></div>
+          <button class="btn btn--soc" type="button">
+        <svg class="logo-s" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Registrarse con Google
+      </button>
+      <button class="btn btn--soc" type="button">
+        <svg class="logo-s" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.9 11.85v-8.38H7.08V12h3.02V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12z"/><path fill="#fff" d="M16.67 15.47 17.2 12h-3.33V9.75c0-.95.47-1.88 1.96-1.88h1.51V4.92s-1.38-.23-2.69-.23c-2.74 0-4.53 1.66-4.53 4.67V12H7.08v3.47h3.02v8.38a12 12 0 0 0 3.77 0v-8.38z"/></svg>
+        Registrarse con Facebook
+      </button>
+        </fieldset>
+      </form>
+      <p class="status" id="status" role="status"></p>
+
+      <div class="prog" id="prog" role="progressbar" aria-label="Progreso del registro" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+        <span class="prog__t" id="progT">1 / 2</span>
+        <div class="prog__bar"><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placeholder: reemplazar el contenido por <img src="..." alt="..."> -->
+  <div class="visual" role="img" aria-label="Imagen ilustrativa"><span>Imagen ilustrativa</span></div>
+</main>
+<script src="register.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* Extiende login.css: header, layout 50/50, inputs, botones y separador se reutilizan */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.login h1{text-align:left}
+.step{min-width:0;margin:0;padding:0;border:0;transition:opacity .16s ease}
+.step.is-out{opacity:0}
+.step.is-in{animation:stepIn .35s ease both}
+@keyframes stepIn{from{opacity:0;transform:translateY(8px)}}
+.sub{margin:0 0 1.1rem;text-align:center;font-size:1.15rem;font-weight:600}
+.row{display:grid;grid-template-columns:96px 1fr;gap:.75rem}
+.have{margin:-.2rem 0 0;text-align:right;font-size:.9rem}.have a{color:var(--link);font-weight:600}.have a:hover{text-decoration:underline}
+.actions{display:flex;justify-content:flex-end;margin-top:1.25rem}
+.btn--next{width:auto;min-width:150px;padding:0 2rem}
+.back{display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.4rem;padding:.25rem 0;background:none;color:var(--mut);font-size:.9rem;transition:color .2s}
+.back:hover{color:var(--ink)}
+.inp[type=date]:invalid{color:var(--mut)}
+.terms{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:.25rem 0 1.25rem;font-size:.9rem;cursor:pointer}
+.terms a{color:var(--link);font-weight:600}.terms a:hover{text-decoration:underline}
+.terms input{appearance:none;flex:none;display:grid;place-items:center;width:18px;height:18px;margin:0;border:1.5px solid var(--ink);border-radius:4px;background:#fff;cursor:pointer;transition:background .2s}
+.terms input::after{content:"";width:9px;height:5px;margin-top:-2px;border:2px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) scale(0);transition:transform .15s}
+.terms input:checked{background:var(--ink)}.terms input:checked::after{transform:rotate(-45deg) scale(1)}
+.terms input:focus-visible{outline:3px solid rgba(12,27,38,.35);outline-offset:2px}
+/* Errores: solo después del primer intento de avanzar en ese paso */
+.was-validated .inp:invalid,.was-validated .terms input:invalid{border-color:#C0392B}
+.status{min-height:1.4rem;margin-top:.75rem;text-align:center;font-size:.9rem;color:var(--mut)}
+/* Barra de progreso */
+.prog{margin-top:1.25rem}
+.prog__t{display:block;margin-bottom:.4rem;text-align:center;font-size:.85rem;font-weight:600;color:var(--mut)}
+.prog__bar{height:6px;border-radius:99px;background:#E0E0E0;overflow:hidden}
+.prog__bar i{display:block;width:var(--p,50%);height:100%;border-radius:inherit;background:#22D05E;transition:width .5s cubic-bezier(.65,0,.35,1)}
+@media(max-width:380px){.row{grid-template-columns:84px 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
