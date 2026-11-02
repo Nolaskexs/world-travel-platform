@@ -1,0 +1,50 @@
+:root{--ink:#0C1B26;--field:#E0E0E0;--sky:#A8D8F0;--link:#1F7BBF;--mut:#5F6A74}
+*{box-sizing:border-box;margin:0}
+body{min-height:100dvh;display:flex;flex-direction:column;background:#fff;color:var(--ink);font:400 16px/1.5 Inter,system-ui,sans-serif}
+button,input{font:inherit;color:inherit}button{cursor:pointer;border:0}
+a{color:inherit;text-decoration:none}
+.i{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Header */
+.hdr{background:var(--ink);color:#fff}
+.hdr__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;width:min(100% - 2rem,1280px);margin:0 auto;padding:1rem 0}
+.logo{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#16293a;border:2px dashed #4a5964;color:#9fb0bd;font-size:.7rem;text-align:center;line-height:1.2}
+.hdr__r{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem}
+.sales{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .9rem;border-radius:8px;background:var(--field);color:var(--ink);font-weight:600;transition:background .2s}
+.sales:hover{background:#fff}
+.nav{display:flex;padding:0;list-style:none}
+.nav li+li{border-left:1px solid rgba(255,255,255,.45)}
+.nav a{display:block;padding:0 1rem;font-weight:600}.nav li:first-child a{padding-left:0}.nav li:last-child a{padding-right:0}
+.nav a:hover{text-decoration:underline}
+
+/* Layout 50/50 */
+.auth{flex:1;display:grid;gap:2rem;width:min(100% - 2rem,1280px);margin:0 auto;padding:2rem 0}
+@media(min-width:900px){.auth{grid-template-columns:1fr 1fr;gap:3rem;padding:2.5rem 0}}
+.pane{display:flex;flex-direction:column}
+.login{width:min(100%,440px);margin:auto}
+.visual{display:none;place-items:center;min-height:560px;border-radius:28px;background:#D9D9D9;color:#7b8288;font-size:.9rem}
+.visual img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+@media(min-width:900px){.visual{display:grid}} /* en móvil la imagen se oculta */
+
+/* Formulario */
+h1{font-size:clamp(2rem,4vw,2.75rem);font-weight:700;line-height:1.15}
+.lead{margin:.75rem 0 1.75rem;color:#3b4a56}
+.fld{display:grid;gap:.4rem;margin-bottom:1.1rem}.fld label{font-weight:600}
+.inp{width:100%;height:52px;padding:0 1rem;border:2px solid transparent;border-radius:12px;background:var(--field);outline:0;transition:box-shadow .2s,border-color .2s,background .2s}
+.inp::placeholder{color:var(--mut)}
+.inp:focus{background:#ebebeb;border-color:rgba(12,27,38,.5);box-shadow:0 0 0 4px rgba(12,27,38,.12)}
+.pw{position:relative}.pw .inp{padding-right:3.25rem}
+.eye{position:absolute;top:50%;right:.4rem;transform:translateY(-50%);display:grid;place-items:center;width:40px;height:40px;border-radius:8px;background:none;color:var(--mut);transition:color .2s,background .2s}
+.eye:hover{color:var(--ink);background:rgba(12,27,38,.06)}
+.eye .slash{transition:opacity .2s}.eye[aria-pressed=true] .slash{opacity:0} /* tachado = contraseña oculta */
+.forgot{display:block;margin:-.3rem 0 1.25rem;text-align:right;font-size:.9rem;color:var(--link)}.forgot:hover,.signup a:hover{text-decoration:underline}
+.btn{display:flex;align-items:center;justify-content:center;gap:.75rem;width:100%;height:52px;border-radius:12px;font-weight:600;transition:background .2s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn--primary{background:var(--sky);color:var(--ink)}.btn--primary:hover{background:#93CBE9}
+.btn--soc{margin-bottom:.75rem;background:var(--field)}.btn--soc:hover{background:#d3d3d3}
+.logo-s{width:22px;height:22px;flex:none}
+.btn:focus-visible,.eye:focus-visible,a:focus-visible{outline:3px solid rgba(12,27,38,.35);outline-offset:2px}
+.or{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--mut)}
+.or::before,.or::after{content:"";flex:1;height:1px;background:#d3d7da}
+.signup{margin-top:1.25rem;text-align:center}.signup a{color:var(--link);font-weight:600}
+.copy{margin-top:2rem;text-align:center;font-size:.85rem;color:#A9AFB5}

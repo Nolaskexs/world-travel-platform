@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>World Travel | Vuelos, alojamientos y paquetes</title>
+<link rel="icon" type="image/png" href="icons/logo-cut.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -34,13 +35,13 @@
 <!-- partial: header -->
 <header class="hdr">
   <div class="wrap hdr__top">
-    <a class="logo ph" href="/" aria-label="World Travel, inicio">Logo<br>88×88</a>
+    <img class="logo ph" href="search.html" src="icons/logo-cut.png" alt="">
     <div class="util">
       <a class="btn-sales" href="tel:0001010001">Para ventas 000-1010001</a>
       <a href="#">Mis viajes</a><span class="sep"></span><a href="#">Ayuda</a><span class="sep"></span>
       <button class="ico" type="button" aria-label="Soporte"><svg class="i"><use href="#i-headset"/></svg></button>
       <button class="ico" type="button" aria-label="Notificaciones"><svg class="i"><use href="#i-bell"/></svg></button>
-      <a class="btn-login" href="#">Iniciar sesión</a>
+      <a class="btn-login" href="login.html">Iniciar sesión</a>
     </div>
   </div>
   <nav class="wrap tabs" role="tablist" aria-label="Servicios">
@@ -74,7 +75,7 @@
       </div>
 
       <div class="sf__row">
-        <div class="dd-wrap"><label class="field"><svg class="i"><use href="#i-pin"/></svg><input id="origin" name="origin" value="Lima" placeholder="Origen" aria-label="Origen" data-dd="origin"></label><div class="dd dd--list" id="dd-origin" hidden></div></div>
+        <div class="dd-wrap"><label class="field"><svg class="i"><use href="#i-pin"/></svg><input id="origin" name="origin" value="Origen" placeholder="Origen" aria-label="Origen" data-dd="origin"></label><div class="dd dd--list" id="dd-origin" hidden></div></div>
         <button type="button" class="swap" aria-label="Intercambiar origen y destino"><svg class="i"><use href="#i-swap"/></svg></button>
         <div class="dd-wrap"><label class="field"><svg class="i"><use href="#i-pin"/></svg><input id="destination" name="destination" placeholder="Destino" aria-label="Destino" data-dd="destination"></label><div class="dd dd--list" id="dd-destination" hidden></div></div>
         <div class="dates dd-wrap">
@@ -132,16 +133,21 @@
   <!-- partial: contacto, app y newsletter -->
   <section class="wrap">
     <div class="contact">
-      <div class="ph contact__img">Ilustración<br>150×110</div>
+      <img src="icons/support2.jpg" class="ph contact__img">
       <div><h3>Contáctanos</h3>
-        <div class="socials"><a class="ph soc" href="#" aria-label="Facebook">f</a><a class="ph soc" href="#" aria-label="Instagram">ig</a><a class="ph soc" href="#" aria-label="X">x</a><a class="ph soc" href="#" aria-label="WhatsApp">wa</a></div>
+        <div class="socials">
+          <img class="ph soc" src="icons/2023_Facebook_icon.svg.png" aria-label="Facebook" href="#">
+          <img class="ph soc" src="icons/instagram-circle-icon.png" aria-label="Instagram" href="#">
+          <img class="ph soc" src="icons/x-icon.jpg" aria-label="X" href="#">
+          <img class="ph soc" src="icons/what.png" aria-label="WhatsApp" href="#">
+        </div>
       </div>
     </div>
     <h2 class="app-title">Recibe ofertas y descubre el mundo</h2>
     <div class="app">
-      <div class="ph app__phone">Teléfono<br>110×150</div>
+      <img class="ph app__phone" src="icons/support-icon.png" alt="App World Travel">
       <p>En nuestra app encontrarás precios más bajos y más beneficios</p>
-      <div class="ph app__qr">QR<br>110×110</div>
+      <div class="ph app__qr"><br></div> <!-- QR Code -->
     </div>
     <div class="news">
       <h3>Ofertas exclusivas en tu email</h3>
@@ -162,7 +168,9 @@
     <div class="ftr__cols">
       <div><h4>Ayuda</h4><ul><li><a href="#">Contáctenos</a></li><li><a href="#">Recibos y reembolsos</a></li><li><a href="#">Preguntas frecuentes</a></li><li><a href="#">Planes de servicio al cliente</a></li><li><a href="#">Condiciones de transporte</a></li></ul></div>
       <div><h4>Acerca de World Travel</h4><ul><li><a href="#">Acerca de World Travel</a></li><li><a href="#">Centro de noticias</a></li><li><a href="#">Políticas e información legal</a></li><li><a href="#">Accesibilidad del sitio web</a></li><li><a href="#">Compatibilidad del navegador</a></li></ul></div>
-      <div><h4>Adicionales</h4><a href="#">Libro de reclamaciones</a><div class="ph libro">Libro de reclamaciones<br>150×90</div></div>
+      <div><h4>Adicionales</h4>
+        <a href="#">Libro de reclamaciones</a>
+        <br><img src="icons/libro-de-reclamaciones.jpg" class="ph libro"><br></div></div>
     </div>
   </div>
 </footer>

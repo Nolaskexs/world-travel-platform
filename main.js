@@ -8,32 +8,51 @@
 
   /* ---------- Datos (reemplazar por datos del backend / loops EJS-PHP) ---------- */
   const CITIES = [['Lima','LIM','Perú'],['Cusco','CUZ','Perú'],['Arequipa','AQP','Perú'],['Roma','FCO','Italia'],['Tokio','HND','Japón'],['Nagoya','NGO','Japón'],['Osaka','KIX','Japón'],['Fukuoka','FUK','Japón'],['Hiroshima','HIJ','Japón'],['Nueva Delhi','DEL','India'],['Madrid','MAD','España'],['París','CDG','Francia'],['Nueva York','JFK','Estados Unidos'],['Cancún','CUN','México'],['Buenos Aires','EZE','Argentina'],['Bogotá','BOG','Colombia']];
-  const PACKAGES = [['Vuelo a Roma','RM','1.230',11],['Vuelo a Tokio','TKY','2.890',9],['India','GAR','2.890',5],['Vuelo a París','PAR','1.540',8],['Vuelo a Cancún','CUN','780',12],['Vuelo a Madrid','MAD','1.120',7]];
+  const PACKAGES = [
+    ['Vuelo a Roma','RM','1.230',11, 'icons/roma.jpg', 'icons/aireuropa.png'],
+    ['Vuelo a Tokio','TKY','2.890',9, 'icons/tokio.jpg', 'icons/japanairlines.png'],
+    ['India','GAR','2.890',5, 'icons/india.jpg', 'icons/airindia.png'],
+    ['Vuelo a París','PAR','1.540',8, 'icons/paris.jpg', 'icons/airefrance.png'] // <- Agrega más tarjetas aquí
+  ];
+  // ... asegúrate de hacerlo para todos
   const HOTELS = [
-    ['The Ritz-Carlton, Tokyo','4.3',4,'Deluxe Room, 2 Queen Beds','18 noches, 2 personas','20.032','19.957',[['Reserva sin pagar ahora','b']]],
-    ['Oz Hotel Luxury','4.8',5,'Classic Room','1 noche, 2 personas','104','74',[['Desayuno','t']]],
-    ['Hotel Riu Plaza España','4.9',5,'Habitación Doble de Lujo','1 noche, 2 personas','414','268',[['Desayuno','t'],['Elegido por parejas','b']]],
-    ['Belmond Monasterio, Cusco','4.7',5,'Habitación Superior','2 noches, 2 personas','620','540',[['Desayuno','t']]],
-    ['Hotel Arts Barcelona','4.6',5,'Deluxe Vista al Mar','3 noches, 2 personas','1.150','990',[['Reserva sin pagar ahora','b']]],
-    ['Miraflores Park, Lima','4.8',5,'Junior Suite','1 noche, 2 personas','330','265',[['Desayuno','t']]],
+    ['The Ritz-Carlton, Tokyo','4.3',4,'Deluxe Room, 2 Queen Beds','18 noches, 2 personas','20.032','19.957',[['Reserva sin pagar ahora','b']],'icons/hotel1.jpg'],
+    ['Oz Hotel Luxury','4.8',5,'Classic Room','1 noche, 2 personas','104','74',[['Desayuno','t']],'icons/hotel3.jpg'],
+    ['Hotel Riu Plaza España','4.9',5,'Habitación Doble de Lujo','1 noche, 2 personas','414','268',[['Desayuno','t'],['Elegido por parejas','b']],'icons/hotel2.jpg'],
+    ['Belmond Monasterio, Cusco','4.7',5,'Habitación Superior','2 noches, 2 personas','620','540',[['Desayuno','t']],'icons/hotel4.jpg'],
+    ['Hotel Arts Barcelona','4.6',5,'Deluxe Vista al Mar','3 noches, 2 personas','1.150','990',[['Reserva sin pagar ahora','b']],'icons/hotel5.jpg'],
+    ['Miraflores Park, Lima','4.8',5,'Junior Suite','1 noche, 2 personas','330','265',[['Desayuno','t']],'icons/hotel6.jpg'],
   ];
 
-  const packCard = ([t, code, price, off]) => `
-    <article class="card">
-      <div class="card__media ph">Imagen destino<br>400×180<span class="badge">-${off}%</span></div>
-      <div class="card__body">
-        <div class="card__row"><h3>${t}</h3><div class="airline"><span class="ph">Logo</span><span class="stock">Stock limitado</span></div></div>
-        <p class="route">LIM ⇆ ${code}</p>
-        <p class="sm">Precio por persona desde</p>
-        <p class="price">US$ <strong>${price}</strong></p>
-        <p class="dates-note">Elige tus fechas entre 30 nov y 28 feb 2027</p>
-        <a class="btn-dark" href="#">Ver vuelo</a>
+  const packCard = ([t, code, price, off, image, logoAerolinea]) => `
+  <article class="card">
+    <div class="card__media">
+      <img src="${image}" alt="${t}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+      <span class="badge">-${off}%</span>
+    </div>
+    <div class="card__body">
+      <div class="card__row">
+        <h3>${t}</h3>
+        <div class="airline">
+          <!-- Aquí reemplazamos el span por la imagen del logo -->
+          <img src="${logoAerolinea}" alt="Aerolínea" style="width: 90px; height: 28px; object-fit: contain;">
+          <span class="stock">Stock limitado</span>
+        </div>
       </div>
-    </article>`;
+      <p class="route">LIM ⇆ ${code}</p>
+      <p class="sm">Precio por persona desde</p>
+      <p class="price">US$ <strong>${price}</strong></p>
+      <p class="dates-note">Elige tus fechas entre 30 nov y 28 feb 2027</p>
+      <a class="btn-dark" href="#">Ver vuelo</a>
+    </div>
+  </article>`;
 
-  const hotelCard = ([n, score, stars, room, stay, old, now, tags]) => `
+  const hotelCard = ([n, score, stars, room, stay, old, now, tags, image]) => `
     <article class="card">
-      <div class="card__media ph">Imagen hotel<br>400×180${tags.map(([t, k]) => `<span class="badge${k === 'b' ? ' badge--b' : ''}">${t}</span>`).join('')}</div>
+      <div class="card__media">
+        <img src="${image}" alt="${n}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+        ${tags.map(([t, c]) => `<span class="badge badge--${c}">${t}</span>`).join('')}
+      </div>
       <div class="card__body"><h3>${n}</h3>
         <div class="rate"><span class="score">${score}</span><span class="stars" aria-label="${stars} estrellas">${ICON('star').repeat(stars)}</span></div>
       </div>
